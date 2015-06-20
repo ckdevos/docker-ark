@@ -5,6 +5,10 @@ Just follow the instructions and you'll be up and running in minutes!
 
 If you're experiencing issues using this docker image please report them on [Github](https://github.com/phantium/docker-ark/issues)
 
+### Features
+- Allows you to run an ARK: Survival Evolved server via Docker
+- Automatic backup before container startup/update
+
 ### Preparations
 - Create /data/ark on your system and give permissions to user with UID 1000:  
   `mkdir /data/ark; chown 1000 -R /data/ark/`
@@ -32,7 +36,7 @@ If you're experiencing issues using this docker image please report them on [Git
   `docker pull phantium/docker-ark`
 
 - Launching a server container:  
-  `docker run -d -v /data/ark:/data/ark -p 27015:27015/udp -p 7778:7778/udp --name=ark phantium/ark`
+  `docker run -d --restart=on-failure:5 -v /data/ark:/data/ark -p 27015:27015/udp -p 7778:7778/udp --name=ark phantium/ark`
 
 - Updating a server container  
   `docker restart ark`
