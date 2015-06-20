@@ -2,6 +2,10 @@
 
 cd /data/ark
 
+if [ ${CHECKFILES} == "true" ]; then
+	ARKVALIDATE="validate"
+fi
+
 # Get steamcmd
 if [ ! -f steamcmd_linux.tar.gz ]; then
         echo "Grabbing SteamCMD..."
@@ -10,7 +14,7 @@ if [ ! -f steamcmd_linux.tar.gz ]; then
 fi
 
 # Backup before updating just to be safe
-if [ -f /data/ark/arkdedicated/ShooterGame/Saved ]; then
+if [ -d /data/ark/arkdedicated/ShooterGame/Saved ]; then
         echo "Backing up Saved folder..."
 	if [ ! -f /data/ark/backup/ ]; then
 		mkdir /data/ark/backup/
@@ -21,7 +25,7 @@ fi
 
 # Update / install server
 echo "Updating ARK..."
-./steamcmd.sh +login anonymous +force_install_dir /data/ark/arkdedicated +app_update 376030 validate +quit
+./steamcmd.sh +login anonymous +force_install_dir /data/ark/arkdedicated +app_update 376030 ${ARKVALIDATE} +quit
 
 
 # Start ARK

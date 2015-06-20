@@ -2,6 +2,9 @@ FROM ubuntu:latest
 
 MAINTAINER Phantium
 
+# Starting steam with validate is slow, lets make it an option
+ENV CHECKFILES "false"
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
