@@ -37,7 +37,7 @@ If you're experiencing issues using this docker image please report them on [Git
 - Updating a server container  
   `docker restart ark`
   + Currently no save on exit! Known issue reported by DEVs here:    [http://steamcommunity.com/app/346110/discussions/0/594820656471833280/](http://steamcommunity.com/app/346110/discussions/0/594820656471833280/)
-  + Workaround: login to the game server and do:  
+  + Workaround: login to the game server and type the following commands into the console:  
    `enablecheats ADMINPASS`  
    `cheat saveworld`
 
@@ -47,7 +47,7 @@ If you're experiencing issues using this docker image please report them on [Git
 - Stopping a server container  
   `docker stop ark`
   + Currently no save on exit! Known issue reported by DEVs here:    [http://steamcommunity.com/app/346110/discussions/0/594820656471833280/](http://steamcommunity.com/app/346110/discussions/0/594820656471833280/)
-   + Workaround: login to the game server and do:  
+   + Workaround: login to the game server and type the following commands into the console:  
    `enablecheats ADMINPASS`  
    `cheat saveworld`
 
