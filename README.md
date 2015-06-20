@@ -50,7 +50,3 @@ If you're experiencing issues using this docker image please report them on [Git
    + Workaround: login to the game server and type the following commands into the console:  
    `enablecheats ADMINPASS`  
    `cheat saveworld`
-
-- You can also run multiple ARK servers by setting `-v /data/ark:/data/ark` to another location.
-  You can do this by changing the first `/data/ark` folder before the colon to another data folder on your server.  
-  E.g. `-v /data/ark1:/data/ark`. The last path is always the path inside the container, do not change the containers path.
