@@ -31,7 +31,7 @@ If you're experiencing issues using this docker image please report them on [Git
 - Pull the docker-ark image:  
   `docker pull phantium/docker-ark`
 
-- Launching a single server container:  
+- Launching a server container:  
   `docker run -d -v /data/ark:/data/ark -p 27015:27015/udp -p 7778:7778/udp --name=ark phantium/ark`
 
 - Updating a server container  
