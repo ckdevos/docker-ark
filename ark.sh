@@ -16,7 +16,7 @@ fi
 # Backup before updating just to be safe
 if [ -d /data/ark/arkdedicated/ShooterGame/Saved ]; then
         echo "Backing up Saved folder..."
-	if [ ! -f /data/ark/backup/ ]; then
+	if [ ! -d /data/ark/backup/ ]; then
 		mkdir /data/ark/backup/
 	fi
         cp -ra /data/ark/arkdedicated/ShooterGame/Saved /data/ark/backup/Saved-startup_$(date +%Y-%m-%d_%H-%M)
