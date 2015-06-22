@@ -54,3 +54,8 @@ If you're experiencing issues using this docker image please report them on [Git
    + Workaround: login to the game server and type the following commands into the console:  
    `enablecheats ADMINPASS`  
    `cheat saveworld`
+
+# Optional variables
+- __CHECKFILES__ Set this variable to true in order to validate installation files, this is off by default as it slows down startup a lot.
+  + If you want to validate an existing server, remove it first and set the CHECKFILES variable in the run command like so:  
+    `docker run -d -e CHECKFILES="true" --restart=on-failure:5 -v /data/ark:/data/ark -p 27015:27015/udp -p 7778:7778/udp --name=ark phantium/ark`
