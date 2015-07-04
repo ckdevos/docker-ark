@@ -8,23 +8,23 @@ fi
 
 # Get steamcmd
 if [ ! -f steamcmd_linux.tar.gz ]; then
-        echo "Grabbing SteamCMD..."
+        echo -e "Grabbing SteamCMD...\n"
         wget -q https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
         tar -xf steamcmd_linux.tar.gz
 fi
 
 # Backup before updating just to be safe
 if [ -d /data/ark/arkdedicated/ShooterGame/Saved ]; then
-        echo "Backing up Saved folder..."
+        echo -e "Backing up Saved folder...\n"
 	if [ ! -d /data/ark/backup/ ]; then
 		mkdir /data/ark/backup/
 	fi
-        cp -ra /data/ark/arkdedicated/ShooterGame/Saved /data/ark/backup/Saved-startup_$(date +%Y-%m-%d_%H-%M)
+	tar czf /data/ark/backup/Saved-startup_$(date +%Y-%m-%d_%H-%M).tar.gz /data/ark/arkdedicated/ShooterGame/Saved
 fi
 
 
 # Update / install server
-echo "Updating ARK..."
+echo -e "Updating ARK...\n"
 ./steamcmd.sh +login anonymous +force_install_dir /data/ark/arkdedicated +app_update 376030 ${ARKVALIDATE} +quit
 
 
@@ -32,6 +32,6 @@ echo "Updating ARK..."
 cd /data/ark/arkdedicated/ShooterGame/Binaries/Linux/
 export LD_LIBRARY_PATH=/data/ark/arkdedicated/
 
-echo "Launching ARK Dedicated Server..."
+echo -e "Launching ARK Dedicated Server...\n"
 
 ./ShooterGameServer TheIsland?listen -server -log
