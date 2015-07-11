@@ -6,6 +6,10 @@ if [ ${CHECKFILES} == "true" ]; then
 	ARKVALIDATE="validate"
 fi
 
+if [ ${RCON} == "true" ]; then
+	ARKRCON="?RCONEnabled=True?RCONPort=32330"
+fi
+
 # Get steamcmd
 if [ ! -f steamcmd_linux.tar.gz ]; then
         echo -e "Grabbing SteamCMD...\n"
@@ -34,4 +38,4 @@ export LD_LIBRARY_PATH=/data/ark/arkdedicated/
 
 echo -e "Launching ARK Dedicated Server...\n"
 
-./ShooterGameServer TheIsland?listen -server -log
+./ShooterGameServer TheIsland?listen${ARKRCON} -server -log

@@ -4,6 +4,8 @@ MAINTAINER Phantium
 
 # Starting steam with validate is slow, lets make it an option
 ENV CHECKFILES "false"
+# Variable to enable RCON, enabled by default
+ENV RCON "true"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -16,6 +18,7 @@ RUN apt-get update \
     && chown -R ark: /data/ark
 
 EXPOSE 27015/udp 7778/udp
+EXPOSE 32330/tcp
 
 ADD ark.sh /usr/local/bin/ark
 
